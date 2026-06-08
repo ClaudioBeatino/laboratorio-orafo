@@ -1,0 +1,72 @@
+# .htaccess — Sebastiano Fotia Laboratorio Orafo
+# Configurazione Apache per produzione.
+# Per Nginx: chiedere al provider di convertire le direttive equivalenti.
+
+# ─── HTTPS Redirect ────────────────────────────────────────────
+# Redirige tutto il traffico HTTP verso HTTPS (301 = permanente).
+# Complemento al redirect JavaScript in main.js: questo agisce a
+# livello server prima che il browser carichi qualsiasi script.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ─── Header di sicurezza HTTP ──────────────────────────────────
+# Aggiungono un secondo strato rispetto ai meta tag HTML.
+# Gli header HTTP hanno precedenza sui meta tag in caso di conflitto.
+<IfModule mod_headers.c>
+  # Impedisce al browser di "indovinare" il tipo MIME dei file
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Vieta il caricamento del sito in iframe su domini esterni (anti-clickjacking)
+  Header always set X-Frame-Options "DENY"
+
+  # Non invia il Referer completo su link verso siti esterni
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Disabilita accesso a geolocalizzazione, microfono, fotocamera ecc.
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+
+  # HSTS: forza HTTPS per 1 anno (31536000 s) su tutti i sottodomini.
+  # ATTENZIONE: aggiungere solo dopo aver verificato che HTTPS funzioni
+  # correttamente. Una volta inviato, il browser ignora HTTP per un anno intero.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ─── Cache statica (performance) ──────────────────────────────
+# CSS, JS e immagini vengono cachati per 1 anno dal browser.
+# Funziona correttamente perché i file hanno nomi fissi: quando si
+# aggiorna un file, si deve cambiare il nome o aggiungere un query
+# string (es. style.css?v=2) per invalidare la cache.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css               "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 year"
+  ExpiresByType font/woff2             "access plus 1 year"
+  ExpiresByType text/html              "access plus 1 hour"
+</IfModule>
+
+# ─── Compressione Gzip ─────────────────────────────────────────
+# Riduce la dimensione dei file trasferiti dal 60–80%.
+# Particolarmente efficace su file di testo (HTML, CSS, JS).
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2 application/json
+</IfModule>
+
+# ─── Blocca accesso a file di sistema ─────────────────────────
+# Impedisce l'accesso a .htaccess stesso, .env, .git, ecc.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# ─── Pagine di errore personalizzate ──────────────────────────
+# TODO: creare i file HTML corrispondenti se si vuole una pagina
+#       di errore coerente con il design del sito.
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html

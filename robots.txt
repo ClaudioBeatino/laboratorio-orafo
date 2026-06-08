@@ -1,0 +1,9 @@
+# robots.txt — Sebastiano Fotia Laboratorio Orafo
+# Consente l'indicizzazione completa a tutti i crawler.
+# Modificare in caso di sezioni private (es. admin, staging).
+
+User-agent: *
+Allow: /
+
+# PRODUZIONE: sostituire TUODOMINIO.it con il dominio reale
+Sitemap: https://TUODOMINIO.it/sitemap.xml

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Claudio Beatino">
+<title>Sebastiano Fotia Orafo — Reggio Calabria dal 1990</title>
+
+<!-- ── SEO & INDICIZZAZIONE ──────────────────────────────────────
+     PRODUZIONE: sostituire TUODOMINIO.it con il dominio reale
+     prima di andare live. Il canonical evita contenuto duplicato
+     se il sito è raggiungibile da più URL (www/non-www, http/https).
+──────────────────────────────────────────────────────────────── -->
+<meta name="description" content="Laboratorio orafo artigianale a Reggio Calabria dal 1990. Gioielli su misura, restauro, riparazione anelli e montaggio pietre preziose.">
+<meta name="keywords"    content="orafo Reggio Calabria, gioielli su misura, restauro gioielli, oreficeria artigianale Calabria">
+<meta name="robots"      content="index, follow">
+<meta name="geo.region"  content="IT-RC">
+<link rel="canonical"    href="https://TUODOMINIO.it/">
+
+<!-- ── OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ─────────────── -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://TUODOMINIO.it/">
+<meta property="og:title"       content="Sebastiano Fotia Orafo — Reggio Calabria dal 1990">
+<meta property="og:description" content="Laboratorio orafo artigianale nel cuore di Reggio Calabria. Creazione gioielli su misura, restauro e riparazione dal 1990.">
+<meta property="og:locale"      content="it_IT">
+<!-- og:image: aggiungere quando disponibile — 1200×630 px raccomandati -->
+<!-- <meta property="og:image" content="https://TUODOMINIO.it/img/og-cover.jpg"> -->
+
+<!-- ── TWITTER / X CARD ──────────────────────────────────────── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Sebastiano Fotia Orafo — Reggio Calabria dal 1990">
+<meta name="twitter:description" content="Laboratorio orafo artigianale nel cuore di Reggio Calabria. Gioielli su misura e restauro dal 1990.">
+
+<!-- ── FAVICON ────────────────────────────────────────────────────
+     TODO: generare i file con https://realfavicongenerator.net
+     e inserirli in /img/favicon/
+──────────────────────────────────────────────────────────────── -->
+<!-- <link rel="icon"             href="/img/favicon/favicon.ico"> -->
+<!-- <link rel="icon"             href="/img/favicon/favicon.svg" type="image/svg+xml"> -->
+<!-- <link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png"> -->
+<!-- <link rel="manifest"         href="/site.webmanifest"> -->
+<meta name="theme-color" content="#0A0A08">
+
+<!-- ── SICUREZZA ──────────────────────────────────────────────── -->
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
+<!--
+  script-src: 'self' per js/ + CDN Three.js + GTM/FB (caricati solo dopo consenso cookie)
+  style-src:  'self' per css/ + Google Fonts + 'unsafe-inline' per attributi SVG
+-->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'none';
+  script-src  'self' https://cdn.jsdelivr.net https://www.googletagmanager.com https://connect.facebook.net;
+  style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src    https://fonts.gstatic.com;
+  connect-src https://formspree.io https://www.google-analytics.com;
+  img-src     'self' data:;
+  base-uri    'self';
+  form-action 'none';
+">
+<!-- ─────────────────────────────────────────────────────────── -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="#storia">Storia</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#galleria">Galleria</a>
+  <a href="#prima-dopo">Restauri</a>
+  <a href="#richiesta">Contatti</a>
+</nav>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    Sebastiano Fotia<br>
+    <span>Oreficeria Artigiana</span>
+  </a>
+  <ul class="nav-links">
+    <div class="nav-indicator" id="navIndicator"></div>
+    <li><a href="#storia">Storia</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#galleria">Galleria</a></li>
+    <li><a href="#prima-dopo">Restauri</a></li>
+    <li><a href="#richiesta">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+  </div>
+
+  <div id="particles"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nel Centro Storico Di Reggio Calabria</p>
+    <h1 class="hero-title">
+      Sebastiano Fotia<em>Laboratorio Orafo</em>
+    </h1>
+    <p class="hero-sub">Creiamo gioielli unici con l'arte tramandata di generazione in generazione. Ogni pezzo racconta una storia di bellezza, passione e maestria artigianale.</p>
+    <div class="hero-divider"></div>
+    <p class="hero-since">Dal 1990 · Artigianato Calabrese</p>
+    <div class="hero-cta">
+      <a href="#galleria" class="btn-gold"><span>Scopri i Lavori</span></a>
+      <a href="#richiesta" class="btn-outline"><span>Richiedi un Preventivo</span></a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scorri</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     STORIA
+══════════════════════════════════════════════════════ -->
+<section id="storia">
+  <div class="storia-grid">
+
+    <div class="storia-visual reveal-l">
+      <div class="storia-accent-line"></div>
+      <div class="storia-frame">
+                        <div class="gallery-inner">
+        <img class="gallery-bg" src="img/vediamo.jpg" alt="Anello solitario oro 18kt con diamante">
+      </div>
+      </div>
+      <div class="storia-year-badge">
+        <div class="year">36</div>
+        <div class="year-label">anni di arte</div>
+      </div>
+    </div>
+
+    <div class="storia-text">
+      <div class="reveal delay-1">
+        <span class="section-label">La Nostra Storia</span>
+        <h2 class="section-title">Arte Orafa<br><em>dal 1990</em></h2>
+      </div>
+      <p class="section-intro reveal delay-2">
+        Nel cuore pulsante del centro storico di Reggio Calabria, il nostro laboratorio è un luogo dove la tradizione incontra l'eccellenza. Da oltre trent'anni trasformiamo metalli preziosi e gemme in opere d'arte da indossare.
+      </p>
+      <p class="storia-secondary-p reveal delay-3">
+        Ogni giorno, con gli stessi strumenti e la stessa dedizione dei grandi orafi calabresi, lavoriamo con passione per creare gioielli unici, restaurare pezzi storici e dare nuova vita a oggetti preziosi carichi di memoria e affetto.
+      </p>
+      <div class="storia-facts reveal delay-4">
+        <div class="fact-card">
+          <div class="fact-num">+1000</div>
+          <div class="fact-desc">Gioielli Creati</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">36</div>
+          <div class="fact-desc">Anni di Esperienza</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">100%</div>
+          <div class="fact-desc">Artigianale</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">RC</div>
+          <div class="fact-desc">Centro Storico</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SERVIZI
+══════════════════════════════════════════════════════ -->
+<section id="servizi">
+  <div class="servizi-header reveal">
+    <span class="section-label">Cosa Facciamo</span>
+    <h2 class="section-title">I Nostri <em>Servizi</em></h2>
+    <p class="section-intro">Dalla creazione su misura al restauro delicato, offriamo un servizio completo per ogni esigenza legata all'oreficeria.</p>
+  </div>
+
+  <div class="servizi-grid">
+    <div class="servizio-card reveal delay-1">
+      <span class="servizio-num">01</span>
+      <span class="servizio-icon">◎</span>
+      <h3 class="servizio-title">Creazione su Misura</h3>
+      <p class="servizio-desc">Realizziamo gioielli unici su progetto, partendo dal tuo concept o da un disegno. Ogni pezzo nasce da una consulenza personalizzata e viene lavorato interamente a mano.</p>
+      <div class="servizio-line"></div>
+    </div>
+    <div class="servizio-card reveal delay-2">
+      <span class="servizio-num">02</span>
+      <span class="servizio-icon">⟁</span>
+      <h3 class="servizio-title">Restauro e Riparazione</h3>
+      <p class="servizio-desc">Restituiamo bellezza e vita ai tuoi gioielli danneggiati o consumati dal tempo. Saldature, reimpostazione di pietre, pulizia professionale e lucidatura.</p>
+      <div class="servizio-line"></div>
+    </div>
+    <div class="servizio-card reveal delay-3">
+      <span class="servizio-num">03</span>
+      <span class="servizio-icon">✦</span>
+      <h3 class="servizio-title">Ridimensionamento Anelli</h3>
+      <p class="servizio-desc">Modifichiamo la misura dei tuoi anelli con precisione assoluta, mantenendo intatta l'estetica del pezzo originale e la qualità delle pietre montate.</p>
+      <div class="servizio-line"></div>
+    </div>
+    <div class="servizio-card reveal delay-1">
+      <span class="servizio-num">04</span>
+      <span class="servizio-icon">⬡</span>
+      <h3 class="servizio-title">Montaggio Pietre Preziose</h3>
+      <p class="servizio-desc">Montiamo diamanti, rubini, smeraldi e qualsiasi pietra preziosa con le tecniche più appropriate: castoni, griffe, pavé e montature personalizzate.</p>
+      <div class="servizio-line"></div>
+    </div>
+    <div class="servizio-card reveal delay-2">
+      <span class="servizio-num">05</span>
+      <span class="servizio-icon">⌘</span>
+      <h3 class="servizio-title">Fusione e Trasformazione</h3>
+      <p class="servizio-desc">Trasformiamo gioielli vecchi o non più indossati in nuovi capolavori. Recuperiamo il metallo e le pietre per creare qualcosa di completamente nuovo e personale.</p>
+      <div class="servizio-line"></div>
+    </div>
+    <div class="servizio-card reveal delay-3">
+      <span class="servizio-num">06</span>
+      <span class="servizio-icon">◈</span>
+      <h3 class="servizio-title">Valutazione e Consulenza</h3>
+      <p class="servizio-desc">Offriamo perizie professionali e consulenze personalizzate per l'acquisto di pietre preziose, la valutazione di gioielli antichi e la pianificazione di progetti orafi.</p>
+      <div class="servizio-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     GALLERIA
+══════════════════════════════════════════════════════ -->
+<section id="galleria">
+  <div class="galleria-header">
+    <div class="reveal-l">
+      <span class="section-label">Portafoglio</span>
+      <h2 class="section-title">La Nostra <em>Galleria</em></h2>
+    </div>
+    <div class="gallery-filters reveal-r">
+      <button type="button" class="filter-btn active" data-filter="tutti">Tutti</button>
+      <button type="button" class="filter-btn" data-filter="anelli">Anelli</button>
+      <button type="button" class="filter-btn" data-filter="collane">Collane</button>
+      <button type="button" class="filter-btn" data-filter="orecchini">Orecchini</button>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <div class="gallery-item gal-1 reveal" data-cat="anelli">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/soli.jpg" alt="Anello solitario oro 18kt con diamante">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Anello Solitario</div>
+        <div class="gallery-tag">Oro 18kt · Diamante · 4 Griffe</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-2 reveal delay-1" data-cat="anelli">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/scat.jpg" alt="Collana in oro 18kt" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Anello solitario </div>
+        <div class="gallery-tag">Oro 18kt · Diamanti · 6 Griffe</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-3 reveal delay-2" data-cat="orecchini">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/ore.jpg" alt="Orecchini a cerchio in oro 18kt" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Orecchini Cerchio</div>
+        <div class="gallery-tag">Oro 18kt · Classici</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-4 reveal delay-1" data-cat="anelli">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/pav.jpg" alt="Anello pavé in oro 18kt" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Riviera di Diamanti</div>
+        <div class="gallery-tag">Oro 18kt · Diamanti</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-5 reveal delay-2" data-cat="collane">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/tennis.jpg" alt="Collana tennis in oro 18kt con brillanti" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Catenina Tennis</div>
+        <div class="gallery-tag">Oro 18kt · Brillanti</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-6 reveal delay-3" data-cat="orecchini">
+      <div class="gallery-inner">
+        <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+          <rect width="300" height="280" fill="#242018"/>
+          <g transform="translate(100,140)">
+            <polygon points="0,-55 20,-15 10,40 -10,40 -20,-15" fill="#111009" stroke="#C9A84C" stroke-width="2" opacity=".85"/>
+            <polygon points="0,-38 14,-10 6,28 -6,28 -14,-10" fill="rgba(201,168,76,.18)"/>
+            <circle cx="0" cy="-20" r="6" fill="#C9A84C" opacity=".5"/>
+          </g>
+          <g transform="translate(200,140)">
+            <polygon points="0,-55 20,-15 10,40 -10,40 -20,-15" fill="#111009" stroke="#C9A84C" stroke-width="2" opacity=".85"/>
+            <polygon points="0,-38 14,-10 6,28 -6,28 -14,-10" fill="rgba(201,168,76,.18)"/>
+            <circle cx="0" cy="-20" r="6" fill="#C9A84C" opacity=".5"/>
+          </g>
+          <line x1="100" y1="85" x2="100" y2="70" stroke="#C9A84C" stroke-width="1.5" opacity=".5"/>
+          <line x1="200" y1="85" x2="200" y2="70" stroke="#C9A84C" stroke-width="1.5" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Pendenti Goccia</div>
+        <div class="gallery-tag">Oro 18kt · Smeraldi</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-7 reveal delay-1" data-cat="anelli">
+      <div class="gallery-inner">
+        <img class="gallery-bg" src="img/fedi.jpg" alt="Fedi nuziali in oro 18kt" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Fedi Nuziali</div>
+        <div class="gallery-tag">Oro 18kt · Artigianali</div>
+      </div>
+    </div>
+
+    <div class="gallery-item gal-8 reveal delay-2" data-cat="collane">
+      <div class="gallery-inner">
+        <div class="gallery-inner">
+        <img class="gallery-bg" src="img/nome.jpg" alt="Collana con nome" loading="lazy">
+      </div>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-title">Collana con Nome</div>
+        <div class="gallery-tag">Oro 18kt · Incisione Laser </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PRIMA E DOPO
+══════════════════════════════════════════════════════ -->
+<section id="prima-dopo">
+  <div class="prima-dopo-header">
+    <span class="section-label reveal">Restauro Professionale</span>
+    <h2 class="section-title reveal delay-1">Prima <em>&amp; Dopo</em></h2>
+    <p class="section-intro section-intro--centered reveal delay-2">Scorri il cursore per vedere la trasformazione. Ogni restauro è una storia di rinascita.</p>
+  </div>
+
+  <div class="comparisons">
+
+    <div class="comparison-card reveal delay-1">
+      <div class="comparison-label">
+        <span class="label-badge label-before">Prima</span>
+        <span class="label-badge label-after">Dopo</span>
+      </div>
+      <div class="comparison-slider" id="slider1" data-dragging="false">
+        <div class="comp-before">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#111009"/>
+            <circle cx="200" cy="150" r="90" fill="none" stroke="#555" stroke-width="14" opacity=".6"/>
+            <circle cx="200" cy="150" r="90" fill="none" stroke="#888" stroke-width="1"  opacity=".2"/>
+            <line x1="160" y1="100" x2="240" y2="200" stroke="#333" stroke-width="2"   opacity=".4"/>
+            <line x1="140" y1="170" x2="260" y2="130" stroke="#333" stroke-width="1.5" opacity=".3"/>
+            <polygon points="200,100 220,140 210,175 190,175 180,140" fill="#0d0d0b" stroke="#444" stroke-width="1.5"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#555" opacity=".6">Stato originale — usurato</text>
+          </svg>
+        </div>
+        <div class="comp-after" id="after1">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#181510"/>
+            <defs><radialGradient id="gr1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".2"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="200" cy="150" rx="110" ry="110" fill="url(#gr1)"/>
+            <circle cx="200" cy="150" r="90" fill="none" stroke="#C9A84C" stroke-width="14" opacity=".85"/>
+            <circle cx="200" cy="150" r="90" fill="none" stroke="#E8C96A" stroke-width="2"  opacity=".5"/>
+            <polygon points="200,100 222,142 212,178 188,178 178,142" fill="#111009" stroke="#C9A84C" stroke-width="2"/>
+            <polygon points="200,114 214,145 207,170 193,170 186,145" fill="rgba(201,168,76,.25)"/>
+            <circle cx="200" cy="127" r="7" fill="#C9A84C" opacity=".6"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#C9A84C" opacity=".7">Restaurato — come nuovo</text>
+          </svg>
+        </div>
+        <div class="slider-handle" id="handle1"><div class="slider-btn"></div></div>
+      </div>
+      <div class="comparison-info">
+        <h3>Anello Vintage Anni '70</h3>
+        <p>Restauro completo con rimozione ossidazioni, lucidatura professionale e reimpostazione della pietra centrale. Ritrovata la brillantezza originale.</p>
+        <span class="comp-type-tag">Lucidatura · Reimpostazione</span>
+      </div>
+    </div>
+
+    <div class="comparison-card reveal delay-2">
+      <div class="comparison-label">
+        <span class="label-badge label-before">Prima</span>
+        <span class="label-badge label-after">Dopo</span>
+      </div>
+      <div class="comparison-slider" id="slider2" data-dragging="false">
+        <div class="comp-before">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#111009"/>
+            <path d="M30,80 Q200,50 370,80 Q300,180 200,200 Q100,180 30,80Z" fill="none" stroke="#555" stroke-width="1.5" opacity=".5"/>
+            <circle cx="60"  cy="90" r="4" fill="#444" opacity=".5"/>
+            <circle cx="120" cy="65" r="4" fill="#444" opacity=".5"/>
+            <circle cx="200" cy="58" r="4" fill="#444" opacity=".5"/>
+            <circle cx="280" cy="65" r="4" fill="#444" opacity=".5"/>
+            <circle cx="340" cy="90" r="4" fill="#444" opacity=".5"/>
+            <line x1="155" y1="62" x2="170" y2="58" stroke="#333" stroke-width="3" opacity=".6"/>
+            <ellipse cx="200" cy="190" rx="25" ry="32" fill="#0d0d0a" stroke="#555" stroke-width="1.5" opacity=".6"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#555" opacity=".6">Catena rotta — pietra allentata</text>
+          </svg>
+        </div>
+        <div class="comp-after" id="after2">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#181510"/>
+            <defs><radialGradient id="gr2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".15"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="200" cy="130" rx="180" ry="100" fill="url(#gr2)"/>
+            <path d="M30,80 Q200,45 370,80 Q300,175 200,195 Q100,175 30,80Z" fill="none" stroke="#C9A84C" stroke-width="2" opacity=".65"/>
+            <circle cx="60"  cy="90" r="4.5" fill="#C9A84C" opacity=".7"/>
+            <circle cx="120" cy="65" r="4.5" fill="#C9A84C" opacity=".7"/>
+            <circle cx="200" cy="57" r="5"   fill="#C9A84C" opacity=".8"/>
+            <circle cx="280" cy="65" r="4.5" fill="#C9A84C" opacity=".7"/>
+            <circle cx="340" cy="90" r="4.5" fill="#C9A84C" opacity=".7"/>
+            <ellipse cx="200" cy="186" rx="28" ry="36" fill="#111009" stroke="#C9A84C" stroke-width="2.5" opacity=".9"/>
+            <ellipse cx="200" cy="186" rx="16" ry="22" fill="rgba(201,168,76,.2)"/>
+            <circle cx="200" cy="174" r="6" fill="#C9A84C" opacity=".6"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#C9A84C" opacity=".7">Riparata — brillante come nuova</text>
+          </svg>
+        </div>
+        <div class="slider-handle" id="handle2"><div class="slider-btn"></div></div>
+      </div>
+      <div class="comparison-info">
+        <h3>Collana con Ciondolo</h3>
+        <p>Saldatura delle maglie rotte, pulizia ad ultrasuoni, lucidatura e rimontaggio della pietra in castoni nuovi. Restituita al suo antico splendore.</p>
+        <span class="comp-type-tag">Saldatura · Castoni · Pulizia</span>
+      </div>
+    </div>
+
+    <div class="comparison-card reveal delay-1">
+      <div class="comparison-label">
+        <span class="label-badge label-before">Prima</span>
+        <span class="label-badge label-after">Dopo</span>
+      </div>
+      <div class="comparison-slider" id="slider3" data-dragging="false">
+        <div class="comp-before">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#111009"/>
+            <g transform="translate(130,150)">
+              <circle r="55" fill="none" stroke="#555" stroke-width="8" opacity=".55"/>
+              <circle r="28" fill="#0d0d0a" stroke="#444" stroke-width="1.5" opacity=".6"/>
+              <circle r="13" fill="rgba(100,80,30,.15)"/>
+            </g>
+            <g transform="translate(270,150)">
+              <circle r="55" fill="none" stroke="#555" stroke-width="8" opacity=".55"/>
+              <circle r="28" fill="#0d0d0a" stroke="#444" stroke-width="1.5" opacity=".6"/>
+            </g>
+            <line x1="130" y1="95" x2="130" y2="75" stroke="#444" stroke-width="1.5" opacity=".5"/>
+            <line x1="270" y1="95" x2="270" y2="75" stroke="#444" stroke-width="1.5" opacity=".5"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#555" opacity=".6">Orecchini ossidati — pietra mancante</text>
+          </svg>
+        </div>
+        <div class="comp-after" id="after3">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#181510"/>
+            <defs>
+              <radialGradient id="grl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".2"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient>
+              <radialGradient id="grr" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".2"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient>
+            </defs>
+            <ellipse cx="130" cy="150" rx="70" ry="70" fill="url(#grl)"/>
+            <ellipse cx="270" cy="150" rx="70" ry="70" fill="url(#grr)"/>
+            <g transform="translate(130,150)">
+              <circle r="55" fill="none" stroke="#C9A84C" stroke-width="8"   opacity=".8"/>
+              <circle r="55" fill="none" stroke="#E8C96A" stroke-width="1.5" opacity=".35"/>
+              <circle r="28" fill="#111009" stroke="#C9A84C" stroke-width="2" opacity=".9"/>
+              <circle r="14" fill="rgba(201,168,76,.25)"/>
+              <circle r="6"  fill="#C9A84C" opacity=".6"/>
+            </g>
+            <g transform="translate(270,150)">
+              <circle r="55" fill="none" stroke="#C9A84C" stroke-width="8"   opacity=".8"/>
+              <circle r="55" fill="none" stroke="#E8C96A" stroke-width="1.5" opacity=".35"/>
+              <circle r="28" fill="#111009" stroke="#C9A84C" stroke-width="2" opacity=".9"/>
+              <circle r="14" fill="rgba(201,168,76,.25)"/>
+              <circle r="6"  fill="#C9A84C" opacity=".6"/>
+            </g>
+            <line x1="130" y1="95" x2="130" y2="72" stroke="#C9A84C" stroke-width="1.5" opacity=".6"/>
+            <line x1="270" y1="95" x2="270" y2="72" stroke="#C9A84C" stroke-width="1.5" opacity=".6"/>
+            <circle cx="130" cy="68" r="4" fill="#C9A84C" opacity=".7"/>
+            <circle cx="270" cy="68" r="4" fill="#C9A84C" opacity=".7"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#C9A84C" opacity=".7">Lucidati — pietra rimontata</text>
+          </svg>
+        </div>
+        <div class="slider-handle" id="handle3"><div class="slider-btn"></div></div>
+      </div>
+      <div class="comparison-info">
+        <h3>Orecchini Cerchio</h3>
+        <p>Rimozione dell'ossidazione, lucidatura completa e montaggio di una nuova pietra al posto di quella perduta. Coppia di nuovo perfettamente abbinata.</p>
+        <span class="comp-type-tag">Lucidatura · Sostituzione Pietra</span>
+      </div>
+    </div>
+
+    <div class="comparison-card reveal delay-2">
+      <div class="comparison-label">
+        <span class="label-badge label-before">Prima</span>
+        <span class="label-badge label-after">Dopo</span>
+      </div>
+      <div class="comparison-slider" id="slider4" data-dragging="false">
+        <div class="comp-before">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#111009"/>
+            <circle cx="200" cy="140" r="82" fill="none" stroke="#555" stroke-width="16" opacity=".6"/>
+            <path d="M200,58 Q215,70 200,82"  fill="none" stroke="#333" stroke-width="4" opacity=".5"/>
+            <path d="M118,140 Q130,155 118,165" fill="none" stroke="#333" stroke-width="3" opacity=".4"/>
+            <polygon points="200,95 212,120 205,148 195,148 188,120" fill="#0d0d0b" stroke="#444" stroke-width="1.5" opacity=".7"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#555" opacity=".6">Fede ammaccata — graffio profondo</text>
+          </svg>
+        </div>
+        <div class="comp-after" id="after4">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect width="400" height="300" fill="#181510"/>
+            <defs><radialGradient id="gr4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".2"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="200" cy="140" rx="110" ry="100" fill="url(#gr4)"/>
+            <circle cx="200" cy="140" r="82" fill="none" stroke="#C9A84C" stroke-width="16" opacity=".85"/>
+            <circle cx="200" cy="140" r="82" fill="none" stroke="#E8C96A" stroke-width="2"  opacity=".4"/>
+            <polygon points="200,93 214,120 207,152 193,152 186,120" fill="#111009" stroke="#C9A84C" stroke-width="2"/>
+            <polygon points="200,107 210,128 205,145 195,145 190,128" fill="rgba(201,168,76,.22)"/>
+            <circle cx="200" cy="110" r="6" fill="#C9A84C" opacity=".55"/>
+            <text x="200" y="260" text-anchor="middle" font-family="Jost" font-size="11" fill="#C9A84C" opacity=".7">Ripristinata — perfetta</text>
+          </svg>
+        </div>
+        <div class="slider-handle" id="handle4"><div class="slider-btn"></div></div>
+      </div>
+      <div class="comparison-info">
+        <h3>Fede Nuziale Danneggiata</h3>
+        <p>Raddrizzamento, rimozione delle ammaccature, ricottura, battitura al mandrino e lucidatura finale. La fede ha ritrovato la sua forma perfetta.</p>
+        <span class="comp-type-tag">Riparazione · Battitura · Lucidatura</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     RICHIESTA LAVORO
+══════════════════════════════════════════════════════ -->
+<section id="richiesta">
+  <div class="richiesta-wrap">
+    <div class="richiesta-info">
+      <div class="reveal">
+        <span class="section-label">Contattaci</span>
+        <h2 class="section-title">Richiedi un<br><em>Preventivo</em></h2>
+      </div>
+      <p class="section-intro reveal delay-1">Descrivici il tuo progetto o il gioiello da restaurare. Ti risponderemo entro 24 ore con una stima personalizzata.</p>
+
+      <div class="contact-item reveal delay-2">
+        <span class="contact-icon">◎</span>
+        <div class="contact-text">
+          <strong>Indirizzo</strong>
+          Via del Torrione, 1b<br>89100 Reggio Calabria (RC)<br>Calabria, Italia
+        </div>
+      </div>
+      <div class="contact-item reveal delay-3">
+        <span class="contact-icon">◈</span>
+        <div class="contact-text">
+          <strong>Orari</strong>
+          Martedì – Venerdì: 9:00 – 18:00<br>Sabato: 9:00 – 16:30<br>Domenica – Lunedì: chiuso
+        </div>
+      </div>
+      <div class="contact-item reveal delay-4">
+        <span class="contact-icon">✦</span>
+        <div class="contact-text">
+          <strong>Telefono &amp; Email</strong>
+          +39 338 774 6317<br>
+          <a class="obf-email" data-u="info" data-d="sebioreficeria" data-t="it" href="#">[caricamento…]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap reveal delay-2">
+      <div class="form-title">Invia la tua Richiesta</div>
+
+      <div id="requestForm">
+        <div class="form-row">
+          <!-- HONEYPOT: i bot lo compilano, gli umani no -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp_website">Sito web</label>
+            <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off" value="">
+          </div>
+
+          <div class="form-group" id="grp-fname">
+            <label for="fname">Nome *</label>
+            <input type="text" id="fname" placeholder="Il tuo nome" autocomplete="given-name" maxlength="60">
+            <span class="field-error">Campo obbligatorio</span>
+          </div>
+          <div class="form-group">
+            <label for="lname">Cognome *</label>
+            <input type="text" id="lname" placeholder="Il tuo cognome" autocomplete="family-name" maxlength="60">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" id="grp-email">
+            <label for="email">Email *</label>
+            <input type="email" id="email" placeholder="info@email.it" autocomplete="email" maxlength="100">
+            <span class="field-error">Inserisci un'email valida</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" placeholder="+39 000 000 0000" autocomplete="tel" maxlength="20">
+          </div>
+        </div>
+
+        <div class="form-group" id="grp-reqtype">
+          <label for="reqtype">Tipo di Richiesta *</label>
+          <select id="reqtype">
+            <option value="" disabled selected>Seleziona il tipo di lavoro</option>
+            <option>Creazione Gioiello su Misura</option>
+            <option>Restauro / Riparazione</option>
+            <option>Ridimensionamento Anello</option>
+            <option>Montaggio Pietra Preziosa</option>
+            <option>Trasformazione Gioiello</option>
+            <option>Valutazione / Perizia</option>
+            <option>Altro</option>
+          </select>
+          <span class="field-error">Seleziona un tipo di lavoro</span>
+        </div>
+
+        <div class="form-group" id="grp-desc">
+          <label for="desc">Descrizione del Lavoro *</label>
+          <textarea id="desc" placeholder="Descrivi dettagliatamente il lavoro che desideri. Indica materiali, pietre, misure o qualsiasi altra informazione utile…" maxlength="2000"></textarea>
+          <span class="field-error">Descrivi il lavoro desiderato</span>
+        </div>
+
+        <div class="form-group">
+          <label for="fileInput">Allega Foto (opzionale)</label>
+          <div class="upload-area" id="uploadArea">
+            <input type="file" multiple accept="image/*" id="fileInput">
+            <div class="upload-icon">⬡</div>
+            <p class="upload-text">Trascina le foto qui o <span>clicca per caricare</span><br>JPG, PNG fino a 10 MB per file</p>
+          </div>
+          <div id="fileList"></div>
+        </div>
+
+        <!-- GDPR Consent (obbligatorio Reg. UE 2016/679) -->
+        <div class="form-group" id="grp-gdpr">
+          <div class="gdpr-wrap">
+            <input type="checkbox" id="gdpr" name="gdpr">
+            <label for="gdpr" class="gdpr-text">
+              Acconsento al trattamento dei miei dati personali ai sensi del <strong>GDPR (Reg. UE 2016/679)</strong> per ricevere risposta alla mia richiesta. I dati non saranno ceduti a terzi. <a href="#" data-noop>Informativa Privacy</a> *
+            </label>
+          </div>
+          <span class="field-error">Devi accettare il trattamento dei dati per procedere</span>
+        </div>
+
+        <button type="button" class="btn-gold" id="submitBtn"><span>Invia Richiesta →</span></button>
+
+        <div class="security-badge">
+          <div class="badge-icon">🔒</div>
+          <span>Invio cifrato via HTTPS · Dati protetti · Nessun tracciamento</span>
+        </div>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✦</div>
+        <h4>Richiesta Inviata!</h4>
+        <p>Grazie per averci contattato. Ti risponderemo entro 24 ore con un preventivo personalizzato.<br>Nel frattempo puoi chiamarci al +39 338 774 6317.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo nav-logo--footer">Sebastiano Fotia <span>Laboratorio Orafo</span></a>
+      <p class="footer-tagline">Dal 1990, creiamo bellezza con le mani<br>nel cuore di Reggio Calabria.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="#storia">La Nostra Storia</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#galleria">Galleria</a></li>
+        <li><a href="#prima-dopo">Restauri</a></li>
+        <li><a href="#richiesta">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servizi</h4>
+      <ul>
+        <li><a href="#richiesta">Creazione su Misura</a></li>
+        <li><a href="#richiesta">Restauro</a></li>
+        <li><a href="#richiesta">Riparazione</a></li>
+        <li><a href="#richiesta">Valutazione</a></li>
+        <li><a href="#richiesta">Trasformazione</a></li>
+        <li><a href="#richiesta" class="footer-link--highlight">⌚ Riparazione Orologi</a></li>
+        <li><a href="#richiesta" class="footer-link--highlight">⌚ Cambio Batteria</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Dove Siamo</h4>
+      <ul>
+        <li><a href="#">Via del Torrione, 1b</a></li>
+        <li><a href="#">Reggio Calabria, 89100</a></li>
+        <li><a href="tel:+393387746317">+39 338 774 6317</a></li>
+        <li><a class="obf-email" data-u="info" data-d="sebioreficeria" data-t="it" href="#">[caricamento…]</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Orari di Apertura</h4>
+      <div class="orari-row"><span class="orari-giorno">Lunedì</span>    <span class="orari-ora chiuso">Chiuso</span></div>
+      <div class="orari-row"><span class="orari-giorno">Martedì</span>   <span class="orari-ora">9:00 – 18:00</span></div>
+      <div class="orari-row"><span class="orari-giorno">Mercoledì</span> <span class="orari-ora">9:00 – 18:00</span></div>
+      <div class="orari-row"><span class="orari-giorno">Giovedì</span>   <span class="orari-ora">9:00 – 18:00</span></div>
+      <div class="orari-row"><span class="orari-giorno">Venerdì</span>   <span class="orari-ora">9:00 – 18:00</span></div>
+      <div class="orari-row"><span class="orari-giorno">Sabato</span>    <span class="orari-ora">9:00 – 16:30</span></div>
+      <div class="orari-row"><span class="orari-giorno">Domenica</span>  <span class="orari-ora chiuso">Chiuso</span></div>
+    </div>
+  </div>
+
+  <!-- Banner Riparazione Orologi -->
+  <div class="orologi-banner">
+    <div class="orologi-banner__content">
+      <span class="orologi-icon">⌚</span>
+      <div>
+        <p class="orologi-title">Riparazione Orologi &amp; Cambio Batteria</p>
+        <p class="orologi-desc">Ripariamo orologi di qualsiasi marca · Cambio batteria rapido anche in giornata · Sostituzione cinturini e bracciali</p>
+      </div>
+    </div>
+    <a href="#richiesta" class="btn-outline btn-outline--sm"><span>Richiedi Intervento</span></a>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">©2026 FotiaOrafo — Reggio Calabria. Tutti i diritti riservati. ·
+      <button type="button" id="footerCookieBtn" class="btn-cookie-manage">Gestisci Cookie</button>
+    </p>
+    <p class="footer-gold-mark">⟡ Oreficeria dal 1990</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════
+     COOKIE BANNER
+══════════════════════════════════════════════════════ -->
+<div id="cookieBanner" role="region" aria-label="Consenso cookie">
+  <div class="ck-text">
+    <strong>🍪 Questo sito utilizza i cookie</strong>
+    <p>Usiamo cookie tecnici necessari e, con il tuo consenso, cookie analitici e di marketing per migliorare l'esperienza e misurare le visite.
+       Puoi accettare tutto, rifiutare i non necessari o personalizzare le tue scelte.
+       <a href="#" id="ckBannerLink">Informativa completa</a>
+    </p>
+  </div>
+  <div class="ck-actions">
+    <button type="button" class="ck-btn ck-btn-reject"   id="ckBannerReject">Rifiuta tutti</button>
+    <button type="button" class="ck-btn ck-btn-settings" id="ckBannerSettings">Personalizza</button>
+    <button type="button" class="ck-btn ck-btn-accept"   id="ckBannerAccept">Accetta tutti ✦</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     COOKIE MODAL
+══════════════════════════════════════════════════════ -->
+<div id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="ckModalTitle">
+  <div class="ck-modal-box">
+
+    <div class="ck-modal-head">
+      <h2 id="ckModalTitle">✦ Preferenze Cookie</h2>
+      <button type="button" class="ck-modal-close" aria-label="Chiudi">✕</button>
+    </div>
+
+    <div class="ck-modal-body">
+      <p class="ck-modal-intro">
+        Utilizziamo cookie e tecnologie simili per far funzionare il sito, analizzare il traffico e proporti contenuti pertinenti.
+        Puoi scegliere quali categorie consentire. I cookie strettamente necessari non possono essere disattivati.
+        Per maggiori informazioni consulta la nostra <a href="#" data-noop>Informativa Privacy</a>
+        e la <a href="#" data-noop>Cookie Policy</a> ai sensi del GDPR (Reg. UE 2016/679)
+        e del Provvedimento Garante Privacy del 10 giugno 2021.
+      </p>
+
+      <!-- Necessari -->
+      <div class="ck-cat open" data-cat="necessary">
+        <div class="ck-cat-head">
+          <div class="ck-cat-info">
+            <div class="ck-cat-name">Necessari</div>
+            <div class="ck-cat-tagline">Indispensabili per il funzionamento del sito</div>
+          </div>
+          <span class="ck-always-on">Sempre attivi</span>
+          <span class="ck-chevron">▶</span>
+        </div>
+        <div class="ck-cat-detail">
+          <table class="ck-table">
+            <thead><tr><th>Cookie</th><th>Fornitore</th><th>Scopo</th><th>Durata</th></tr></thead>
+            <tbody>
+              <tr><td>cookie_consent</td><td>Questo sito</td><td>Salva le preferenze cookie dell'utente</td><td>1 anno</td></tr>
+              <tr><td>PHPSESSID</td><td>Questo sito</td><td>Mantiene la sessione utente attiva</td><td>Sessione</td></tr>
+              <tr><td>csrf_token</td><td>Questo sito</td><td>Protezione CSRF dei form</td><td>Sessione</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Analitici -->
+      <div class="ck-cat" data-cat="analytics">
+        <div class="ck-cat-head">
+          <div class="ck-cat-info">
+            <div class="ck-cat-name">Analitici</div>
+            <div class="ck-cat-tagline">Ci aiutano a capire come i visitatori usano il sito</div>
+          </div>
+          <label class="ck-toggle" aria-label="Abilita cookie analitici">
+            <input type="checkbox" id="toggle_analytics">
+            <span class="ck-toggle-track"></span>
+            <span class="ck-toggle-thumb"></span>
+          </label>
+          <span class="ck-chevron">▶</span>
+        </div>
+        <div class="ck-cat-detail">
+          <table class="ck-table">
+            <thead><tr><th>Cookie</th><th>Fornitore</th><th>Scopo</th><th>Durata</th></tr></thead>
+            <tbody>
+              <tr><td>_ga</td><td>Google Analytics</td><td>Distingue utenti unici tramite ID anonimo</td><td>2 anni</td></tr>
+              <tr><td>_gid</td><td>Google Analytics</td><td>Distingue utenti, aggiornato ogni sessione</td><td>24 ore</td></tr>
+              <tr><td>_ga_XXXXXXXX</td><td>Google Analytics 4</td><td>Mantiene lo stato della sessione GA4</td><td>2 anni</td></tr>
+              <tr><td>_gat</td><td>Google Analytics</td><td>Limita la frequenza delle richieste</td><td>1 minuto</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div class="ck-cat" data-cat="marketing">
+        <div class="ck-cat-head">
+          <div class="ck-cat-info">
+            <div class="ck-cat-name">Marketing &amp; Pubblicità</div>
+            <div class="ck-cat-tagline">Permettono di mostrarti annunci pertinenti su altri siti</div>
+          </div>
+          <label class="ck-toggle" aria-label="Abilita cookie marketing">
+            <input type="checkbox" id="toggle_marketing">
+            <span class="ck-toggle-track"></span>
+            <span class="ck-toggle-thumb"></span>
+          </label>
+          <span class="ck-chevron">▶</span>
+        </div>
+        <div class="ck-cat-detail">
+          <table class="ck-table">
+            <thead><tr><th>Cookie</th><th>Fornitore</th><th>Scopo</th><th>Durata</th></tr></thead>
+            <tbody>
+              <tr><td>_gcl_au</td><td>Google Ads</td><td>Memorizza le conversioni delle campagne pubblicitarie</td><td>90 giorni</td></tr>
+              <tr><td>_fbp</td><td>Meta (Facebook)</td><td>Tracciamento pixel per campagne pubblicitarie</td><td>90 giorni</td></tr>
+              <tr><td>_fbc</td><td>Meta (Facebook)</td><td>Memorizza l'ID del click su annunci Facebook</td><td>Sessione</td></tr>
+              <tr><td>IDE</td><td>Google DoubleClick</td><td>Pubblicità display personalizzata</td><td>13 mesi</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Funzionali -->
+      <div class="ck-cat" data-cat="functional">
+        <div class="ck-cat-head">
+          <div class="ck-cat-info">
+            <div class="ck-cat-name">Funzionali</div>
+            <div class="ck-cat-tagline">Migliorano l'esperienza ricordando le tue preferenze</div>
+          </div>
+          <label class="ck-toggle" aria-label="Abilita cookie funzionali">
+            <input type="checkbox" id="toggle_functional">
+            <span class="ck-toggle-track"></span>
+            <span class="ck-toggle-thumb"></span>
+          </label>
+          <span class="ck-chevron">▶</span>
+        </div>
+        <div class="ck-cat-detail">
+          <table class="ck-table">
+            <thead><tr><th>Cookie</th><th>Fornitore</th><th>Scopo</th><th>Durata</th></tr></thead>
+            <tbody>
+              <tr><td>lang_pref</td><td>Questo sito</td><td>Ricorda la lingua preferita dall'utente</td><td>Sessione</td></tr>
+              <tr><td>_wa_session</td><td>WhatsApp Business</td><td>Widget chat WhatsApp (se abilitato)</td><td>Sessione</td></tr>
+              <tr><td>recently_viewed</td><td>Questo sito</td><td>Memorizza gli ultimi articoli visualizzati</td><td>30 giorni</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /ck-modal-body -->
+
+    <div class="ck-modal-foot">
+      <button type="button" class="ck-btn ck-btn-reject" id="ckModalReject">Rifiuta tutti</button>
+      <button type="button" class="ck-btn ck-btn-accept" id="ckModalSave">Salva preferenze ✦</button>
+    </div>
+
+  </div><!-- /ck-modal-box -->
+</div><!-- /cookieModal -->
+
+<!-- ── SCHEMA.ORG — dati strutturati per Google Maps / Knowledge Panel ──
+     Migliora la scheda locale su Google e Bing senza alcun costo.
+     PRODUZIONE: verificare coordinate reali su maps.google.it
+─────────────────────────────────────────────────────────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "name": "Sebastiano Fotia Orafo",
+  "description": "Laboratorio orafo artigianale a Reggio Calabria dal 1990",
+  "url": "https://TUODOMINIO.it",
+  "telephone": "+393387746317",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via del Torrione, 12",
+    "addressLocality": "Reggio Calabria",
+    "postalCode": "89100",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.1105,
+    "longitude": 15.6470
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "16:30"
+    }
+  ],
+  "priceRange": "€€",
+  "foundingDate": "1990"
+}
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
