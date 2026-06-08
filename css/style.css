@@ -882,6 +882,7 @@ footer {
 
 @media (max-width: 600px) {
   #navbar { padding: 1rem 1.5rem; }
+  .scroll-hint { display: none; }
   .servizi-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
   .galleria-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
